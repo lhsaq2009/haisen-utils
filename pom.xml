@@ -11,8 +11,18 @@
     <name>common-development-kit</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
-    <description>Haisen Ling's development kit; 2018-10-29 17:05:50
-    </description>
+    <description>Haisen Ling's development kit; 2018-10-29 17:05:50</description>
+
+    <distributionManagement>
+        <repository>
+            <id>public-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </repository>
+        <snapshotRepository>
+            <id>public-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
