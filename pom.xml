@@ -9,12 +9,10 @@
     <version>1.0.1-SNAPSHOT</version>
 
     <name>common-development-kit</name>
-    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
     <description>Haisen Ling's development kit; 2018-10-29 17:05:50</description>
-
-    <!-- https://oss.sonatype.org/#nexus-search;quick~com.github.lhs472194266 -->
+    
     <distributionManagement>
         <repository>
             <id>public-snapshots</id>
