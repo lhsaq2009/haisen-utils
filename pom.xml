@@ -27,6 +27,9 @@
     </distributionManagement>
 
     <properties>
+        <swagger.version>2.7.0</swagger.version>
+        <easypoi.version>4.0.0</easypoi.version>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -38,6 +41,26 @@
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
+        </dependency>
+        <!-- 注解相关，提高工作效率 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <!-- https://projectlombok.org/download -->
+            <version>1.16.16</version>
+        </dependency>
+        <!-- Excel 工具类 -->
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-base</artifactId>
+            <version>${easypoi.version}</version>
+        </dependency>
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.2.7.RELEASE</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
