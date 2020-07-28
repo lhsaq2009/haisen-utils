@@ -10,11 +10,17 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import lombok.extern.slf4j.Slf4j;
+
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFClientAnchor;
+import org.apache.poi.xssf.usermodel.XSSFDrawing;
 import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFRichTextString;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -22,6 +28,8 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.util.Assert;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -30,11 +38,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.imageio.ImageIO;
+
 /**
  * Excel工具类
  */
 @Slf4j
-public class ExcelUtils {
+public class ExcelUtil {
 
     public static void main(String[] args) throws Throwable {
         String path = "test.xls";
@@ -72,7 +82,25 @@ public class ExcelUtils {
             data.add(rowData);
         }
 
-        ExcelUtils.generateExcelWithMultiSheet(path, sheetNames, multiTableHeader, multiTableData);
+        ExcelUtil.generateExcelWithMultiSheet(path, sheetNames, multiTableHeader, multiTableData);
+    }
+
+    public static void generateExcelWithSingleSheet(String path, String sheetName,
+                                                    List<String> tableHeader,
+                                                    List<List<String>> tableData) {
+
+        Map<String, List<String>> multiTableHeader = Maps.newHashMap();
+        multiTableHeader.put(sheetName, tableHeader);
+
+        Map<String, List<List<String>>> multiTableData = Maps.newHashMap();
+        multiTableData.put(sheetName, tableData);
+
+        ExcelUtil.generateExcelWithMultiSheet(
+                path,
+                Lists.newArrayList(sheetName),
+                multiTableHeader,
+                multiTableData
+        );
     }
 
     /**
@@ -83,7 +111,8 @@ public class ExcelUtils {
      */
     public static void generateExcelWithMultiSheet(String path, List<String> sheetNames,
                                                    Map<String, List<String>> multiTableHeader,
-                                                   Map<String, List<List<String>>> multiTableData) {
+                                                   Map<String, List<List<String>>> multiTableData
+    ) {
         try {
             Assert.state(CollectionUtils.isNotEmpty(sheetNames), "List of sheet pages not provided");
 
@@ -256,5 +285,35 @@ public class ExcelUtils {
         cellStyle.setDataFormat((short) 0x31);              // 设置显示格式，避免点击后变成科学计数法了
         cellStyle.setWrapText(false);                       // 设置自动换行
         return cellStyle;
+    }
+
+    public static void downloadImage(String picUrl) {
+
+    }
+
+    public static void insertImageByColumn(Workbook workBook, Sheet topPic, String picPath) {
+        BufferedImage bufferImg = null; // 图片
+        try {
+            // 先把读进来的图片放到一个ByteArrayOutputStream中，以便产生ByteArray
+            ByteArrayOutputStream byteArrayOut = new ByteArrayOutputStream();
+            //将图片读到BufferedImage
+            bufferImg = ImageIO.read(new File(picPath));
+            // 将图片写入流中
+            ImageIO.write(bufferImg, "png", byteArrayOut);
+            // 利用HSSFPatriarch将图片写入EXCEL
+            XSSFDrawing patriarch = (XSSFDrawing) topPic.createDrawingPatriarch();
+            //图片一导出到单元格B2中
+            XSSFClientAnchor anchor = new XSSFClientAnchor(0, 0, 0, 0,
+                    (short) 0, 0, (short) 10, 30);
+            // 插入图片
+            patriarch.createPicture(anchor, workBook.addPicture(byteArrayOut
+                    .toByteArray(), HSSFWorkbook.PICTURE_TYPE_PNG));
+            System.out.println("插入成功");
+        } catch (IOException io) {
+            io.printStackTrace();
+            System.out.println("插入失败 : " + io.getMessage());
+        } finally {
+
+        }
     }
 }
