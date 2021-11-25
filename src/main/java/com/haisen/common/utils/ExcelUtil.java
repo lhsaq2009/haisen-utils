@@ -9,8 +9,6 @@ package com.haisen.common.utils;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import lombok.extern.slf4j.Slf4j;
-
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -39,6 +37,8 @@ import java.util.Map;
 import java.util.Optional;
 
 import javax.imageio.ImageIO;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Excel工具类
@@ -82,7 +82,7 @@ public class ExcelUtil {
             data.add(rowData);
         }
 
-        ExcelUtil.generateExcelWithMultiSheet(path, sheetNames, multiTableHeader, multiTableData);
+        com.litb.data.view.common.utils.ExcelUtil.generateExcelWithMultiSheet(path, sheetNames, multiTableHeader, multiTableData);
     }
 
     public static void generateExcelWithSingleSheet(String path, String sheetName,
@@ -95,7 +95,7 @@ public class ExcelUtil {
         Map<String, List<List<String>>> multiTableData = Maps.newHashMap();
         multiTableData.put(sheetName, tableData);
 
-        ExcelUtil.generateExcelWithMultiSheet(
+        com.litb.data.view.common.utils.ExcelUtil.generateExcelWithMultiSheet(
                 path,
                 Lists.newArrayList(sheetName),
                 multiTableHeader,

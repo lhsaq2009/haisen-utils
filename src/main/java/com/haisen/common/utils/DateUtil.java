@@ -694,7 +694,7 @@ public class DateUtil {
      * @return 相差天数
      */
     public static int getIntervalDays(Date date, Date otherDate) {
-        date = DateUtil.StringToDate(DateUtil.getDate(date));
+        date = com.litb.data.view.common.utils.DateUtil.StringToDate(com.litb.data.view.common.utils.DateUtil.getDate(date));
         long time = Math.abs(date.getTime() - otherDate.getTime());
         return (int) time / (24 * 60 * 60 * 1000);
     }
