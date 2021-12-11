@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * @author haisen /20207/28 
  */
 public class ArraysUtil {
-    
+
     public static List<String> trimStr(String[] arr) {
 
         if (arr == null || arr.length == 0) {

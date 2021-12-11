@@ -4,13 +4,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <groupId>com.github.lhsaq2009</groupId>
     <artifactId>common-development-kit</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.5-SNAPSHOT</version>
 
     <name>common-development-kit</name>
-    <url>http://www.example.com</url>
+    <url>https://gitee.com/lhsaq2009/base-kit</url>
 
     <description>Haisen Ling's development kit; 2018-10-29 17:05:50</description>
 
@@ -35,26 +35,29 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.13</version>
             <scope>test</scope>
         </dependency>
+
         <!-- 注解相关，提高工作效率 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <!-- https://projectlombok.org/download -->
-            <version>1.16.16</version>
+            <version>1.18.12</version>
         </dependency>
+
         <!-- Excel 工具类 -->
         <dependency>
             <groupId>cn.afterturn</groupId>
             <artifactId>easypoi-base</artifactId>
             <version>${easypoi.version}</version>
         </dependency>
-        <!-- spring -->
+
+        <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
