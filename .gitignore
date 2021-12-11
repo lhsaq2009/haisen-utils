@@ -1,3 +1,4 @@
 /target/*
 /.idea/
 /common-development-kit.iml
+/target/
