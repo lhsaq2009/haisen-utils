@@ -36,12 +36,12 @@
 
     <dependencies>
 
-        <dependency>
+        <!--<dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
 
         <!-- 注解相关，提高工作效率 -->
         <dependency>
