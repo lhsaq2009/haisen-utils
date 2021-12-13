@@ -2,7 +2,7 @@ package com.haisen.common.utils;
 
 import com.google.common.collect.Lists;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.Arrays;
 import java.util.List;
