@@ -3,6 +3,7 @@ package com.haisen.test.model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>〈功能概述〉.
@@ -11,6 +12,7 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class Student /*extends Person*/ {
+@NoArgsConstructor
+public class Student {
 
 }
