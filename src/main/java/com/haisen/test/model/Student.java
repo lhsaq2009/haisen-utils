@@ -15,4 +15,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Student {
 
+    private Integer id;
+    private String name;
+
+    public static void main(String[] args) {
+        Student aa = new Student(1, "aa");
+        System.out.println(aa);
+    }
 }
