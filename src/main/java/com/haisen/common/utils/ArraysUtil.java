@@ -2,7 +2,7 @@ package com.haisen.common.utils;
 
 import com.google.common.collect.Lists;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
  * @author haisen /20207/28 
  */
 public class ArraysUtil {
-    
+
     public static List<String> trimStr(String[] arr) {
 
         if (arr == null || arr.length == 0) {

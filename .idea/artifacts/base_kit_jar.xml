@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="base-kit:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/base_kit_jar</output-path>
-    <root id="archive" name="base-kit.jar">
-      <element id="module-output" name="base-kit" />
-    </root>
-  </artifact>
-</component>
