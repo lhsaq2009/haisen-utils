@@ -82,7 +82,7 @@ public class ExcelUtil {
             data.add(rowData);
         }
 
-        com.litb.data.view.common.utils.ExcelUtil.generateExcelWithMultiSheet(path, sheetNames, multiTableHeader, multiTableData);
+        ExcelUtil.generateExcelWithMultiSheet(path, sheetNames, multiTableHeader, multiTableData);
     }
 
     public static void generateExcelWithSingleSheet(String path, String sheetName,
@@ -95,7 +95,7 @@ public class ExcelUtil {
         Map<String, List<List<String>>> multiTableData = Maps.newHashMap();
         multiTableData.put(sheetName, tableData);
 
-        com.litb.data.view.common.utils.ExcelUtil.generateExcelWithMultiSheet(
+        ExcelUtil.generateExcelWithMultiSheet(
                 path,
                 Lists.newArrayList(sheetName),
                 multiTableHeader,
