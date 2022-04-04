@@ -46,13 +46,19 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <!-- https://projectlombok.org/download -->
-            <version>1.16.16</version>
+            <version>1.18.20</version>
         </dependency>
         <!-- Excel 工具类 -->
         <dependency>
             <groupId>cn.afterturn</groupId>
             <artifactId>easypoi-base</artifactId>
             <version>${easypoi.version}</version>
+        </dependency>
+        <!-- 集合工具库 -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>29.0-jre</version>
         </dependency>
         <!-- spring -->
         <dependency>
