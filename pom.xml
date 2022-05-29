@@ -7,7 +7,7 @@
 
     <groupId>com.github.lhsaq2009</groupId>
     <artifactId>common-development-kit</artifactId>
-    <version>1.0.9-SNAPSHOT</version>
+    <version>1.0.10-SNAPSHOT</version>
 
     <name>common-development-kit</name>
     <!-- <url>http://www.example.com</url> -->
@@ -78,6 +78,13 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jodd</groupId>
+            <artifactId>jodd-core</artifactId>
+            <version>5.0.10</version>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>
