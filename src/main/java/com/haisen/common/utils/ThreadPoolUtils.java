@@ -16,13 +16,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadPoolUtils {
 
-    public ExecutorService buildThreadPool(String threadName) {
+    public static ExecutorService buildThreadPool(String threadName) {
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat(threadName + "-%d").build();
         return new ThreadPoolExecutor(
                 5, 5,
-                0L, TimeUnit.MILLISECONDS,
-
-                new ArrayBlockingQueue<>(5),            // 阻塞队列 => 推荐使用有界队列，有界队列有助于避免资源耗尽的情况发生
+                600L, TimeUnit.MILLISECONDS,
+                new ArrayBlockingQueue<>(100),            // 阻塞队列 => 推荐使用有界队列，有界队列有助于避免资源耗尽的情况发生
                 namedThreadFactory,
                 new ThreadPoolExecutor.AbortPolicy());
     }
